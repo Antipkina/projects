@@ -1,0 +1,612 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Marck+Script');
+
+
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: .5s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
+}
+ul {
+    list-style: none;
+}
+a {
+
+    color: #2c1a4a;
+    font-size: 18px;
+    text-decoration: none;
+    outline: none;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Calibri;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+
+body {
+    background-color: #343477;
+    color: #000000;
+    font-size: 14px;
+    font-family: Rockwell;
+    scrollbar-face-color: #b46868;
+}
+
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: #2a09ff;
+}
+
+::-webkit-scrollbar { width: 6px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #999;}
+::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}
+::-webkit-resizer { background-color: #666;}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 0px;
+}
+.navb
+{
+    background-color: rgb(255, 255, 255);
+    top: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    height: 60px;
+    width: 100%;
+    box-shadow: 0 0 5px #335658;
+}
+
+.logo {
+    margin: 12px 0px 0px 90px;
+}
+
+.maregin {
+    margin: 60px 60px 0px 60px;
+}
+
+.icon {
+    margin-top: 30px;
+}
+/*********************************кнопки ссылки*********************************************/
+.func {
+    margin-top: 16%;
+}
+
+.func  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+}
+
+.select {
+    width: 100%;
+    margin-bottom: 7%;
+}
+
+.button {
+    margin-top: 5%;
+}
+/************************************************************************* меню ************************************************/
+
+.menu-main {
+    margin-top: 1px;
+}
+
+.menu-main a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 9px 20px;
+    font-family: Calibri;
+    font-size: 25px;
+    color: #27146d;
+    border-bottom: 1px solid transparent;
+    transition: .1s linear;
+
+}
+
+.menu-main ul
+{
+   /* display: none;*/
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.menu-main li:hover ul
+{
+    display: block;
+}
+
+.menu-main li {
+    float: left;
+    position: relative;
+}
+.menu-main ul li
+{
+    float: none;
+    font-size: 12px;
+    border: 1px solid #27146d;
+    box-shadow: 0 0 3px #27146d;
+}
+
+
+.info
+{
+    float: left;
+    height: 100%;
+    margin-left: 100px;
+}
+
+.phone
+{
+    color: #333333;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.logo p{
+    color: #27146d;
+    font-size: 30px;
+}
+
+.ico
+{
+    width: 50px;
+    float: left;
+    margin: 7px 0px 0px 20px;
+}
+
+.content
+{
+    margin-top: 75px;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.ico-v {
+    width: 250px;
+    float: left;
+    margin: 45px 0px 0px 7px;
+}
+
+.block
+{
+    background-color: #ffffff;
+    width: 100%;
+    min-height: 575px;
+    display: inline-block;
+    box-shadow: 0 0 100px #000000;
+}
+
+.text-content
+{
+    width: 100%;
+    padding:0px 0px 30px 0px;
+    text-align: justify;
+    display: inline-block;
+}
+
+
+.text-content p
+{
+    font-size: 18px;
+    text-indent: 20px;
+    padding-right: 20px;
+}
+.text-content h1,h3
+{
+    color: #27146d;;
+    margin: 75px 0px 20px 0px;
+    text-align: center;
+}
+
+.text-content h4
+{
+    margin: 30px 0px 25px 0px;
+    text-align: center;
+}
+
+.text-content h3
+{
+    margin: 90px 0px 25px 0px;
+}
+
+.text
+{
+    font-size: 56px;
+    font-family: 'Marck Script', cursive;
+    margin-top: 30px;
+}
+
+.im
+{
+    width: 112px;
+    height: 100px;
+    margin-left: 96px;
+}
+
+.form
+{
+    background-color: #ffffff;
+    margin: 20px 0px 0px 0px;
+    border-radius: 7px;
+    padding: 10px;
+}
+.selectform
+{
+    width: 90%;
+    margin: 20px 0px 0px 0px;
+    border-radius: 4px;
+    padding: 7px;
+}
+.form p{
+    color: #78d1d8;
+}
+.form h3
+{
+  color: #78d1d8;
+}
+
+input[type="submit"]
+{
+    background-color: #cae6f4;
+    width: 91px;
+    height: 30px;
+    border: 0px;
+    border-radius: 3px;
+    color: #0e9cc3;
+}
+
+.stile {
+    background: #fff;
+    color: #343477;
+}
+/**************************************************************************************************************/
+/*************************************************************************************************************/
+/************************************        Меню          ***************************************************/
+/*************************************************************************************************************/
+/*************************************************************************************************************/
+
+.top-menu {
+    position: relative;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px #2c1a0e;
+}
+
+.menu-main:before,
+.menu-main:after {
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu-main:before {left: 15px;}
+.menu-main:after {right: 15px;}
+.menu-main li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.menu-main .current, .menu-main a:hover {
+    border: 1px solid #27146d;
+    border-radius: 2px;
+    color: #27146d;
+    box-shadow: 0 0 3px #27146d;
+}
+
+
+/********************************************* форма *******************************************************************/
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+.con {
+    margin-top: 35px;
+    box-shadow: 0px 0px 6px #343477;
+}
+table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.login {
+    position: relative;
+    margin: 50px auto 0 auto;
+    padding: 20px 20px 20px;
+    width: 310px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 20px rgb(255, 255, 255), 0 1px 30px rgb(23, 23, 160);;
+    box-shadow: 0 0 20px rgb(255, 255, 255), 0 1px 30px rgb(23, 23, 160);
+}
+.login:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}
+.login h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 3px 3px 0 0;
+    background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+}
+
+
+.login p {
+    margin: 20px 0 0;
+}
+.login p:first-child {
+    margin-top: 0;
+}
+.login input[type=text], .login input[type=password] {
+    width: 260px;
+}
+.login p.remember_me {
+    float: left;
+    line-height: 31px;
+}
+.login p.remember_me label {
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+}
+.login p.remember_me input {
+    position: relative;
+    bottom: 1px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+.login p.submit {
+    text-align: right;
+}
+
+.login-help {
+    margin: 20px 0;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px #2a85a1;
+}
+.login-help a {
+    color: #cce7fa;
+    text-decoration: none;
+}
+.login-help a:hover {
+    text-decoration: underline;
+}
+
+:-moz-placeholder {
+    color: #c9c9c9 !important;
+    font-size: 13px;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 13px;
+}
+
+input {
+    font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+input[type=text], input[type=password] {
+    margin: 5px;
+    padding: 0 10px;
+    width: 200px;
+    height: 34px;
+    color: #404040;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+input[type=text]:focus, input[type=password]:focus {
+    border-color: #7dc9e2;
+    outline-color: #dceefc;
+    outline-offset: 0;
+}
+
+input[type=submit] {
+    padding: 0 18px;
+    height: 29px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 1px #343477;
+    background: #3a57c5;
+    border: 1px solid;
+    border-color: #eeeef8 #7e7ec6 #19203b;
+    border-radius: 4px;
+    outline: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background-image: -webkit-linear-gradient(top, #343b83, #283fa0);
+    background-image: -moz-linear-gradient(top, #edf5f8, #cde5ef);
+    background-image: -o-linear-gradient(top, #edf5f8, #cde5ef);
+    background-image: linear-gradient(to bottom, #95aafe, #2029a2);
+    -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px #cdd1e4, 0 1px 2px rgb(16, 28, 82);
+}
+
+
+input[type=submit]:active {
+    background: #cde5ef;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.form-item {
+    margin-top: 7px;
+}
+
+.errors {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 3px 3px 0 0;
+    background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+}
+/************************************* таблица ********************************************************************/
+
+.tible table{
+    margin: 50px 0;
+    text-align: left;
+    border-collapse: separate;
+    border: 1px solid #ddd;
+    border-spacing: 1px;
+    border-radius: 3px;
+    background: #fdfdfd;
+    font-size: 14px;
+    width: auto;
+}
+.tible td,th{
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 3px;
+}
+.tible th{
+    color: #fff;
+    background: #343477;
+}
+.caption {
+    font-style: italic;
+    text-align: right;
+    color: #547901;
+}
+
+.color {
+    color: #ffffff;
+}
+
+/*********************************************************************************************************************/
+/************************************* Календарь ************************************************
+*****/
+#calendar4 {
+    width: 50%;
+    font: monospace;
+    line-height: 1.2em;
+    font-size: 18px;
+    text-align: center;
+}
+#calendar4 thead tr:last-child {
+    font-size: small;
+    font-weight: 500;
+    color: rgb(103, 103, 103);
+}
+#calendar4 tbody td {
+    color: rgb(44, 86, 122);
+}
+#calendar4 tbody td:nth-child(1) {
+    font-size: small;
+    color: rgba(103, 103, 103, .7);
+}
+#calendar4 tbody td:nth-child(n+7), #calendar4 .holiday {
+    color: rgb(231, 140, 92);
+}
+#calendar4 tbody td.today {
+    outline: 3px solid #262fa6;
+}
+
+/*******************  селект ********************************************/
+
+.select_form {
+    width: 70%;
+    margin-top: 40px;
+}
+
+
+.prin {
+    display: none;
+}
+
+@media print {
+    body {
+        background: none !important; /* Brute force since user agents all print differently. */
+        font-size: 11.25pt;
+    }
+
+    a:hover, a:visited {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .pagebreak {
+        margin-top: 150px;
+    }
+
+    .con {
+        width: 100%;
+        margin-top: -40px;
+    }
+
+    .prin {
+        display: block;
+    }
+
+    /*.tible {
+        margin-left: -40px;
+    }*/
+
+    .stile {
+        background: #fff;
+        color: #000000;
+    }
+}

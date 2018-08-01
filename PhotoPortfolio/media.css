@@ -1,0 +1,133 @@
+@media (min-width: 320px)  {
+    .cursiv {
+        margin-top: 8px;
+        font-size: 12pt;
+    }
+    .info {
+        padding: 0px 0px 10px 0px;
+        font-size: 0.5em;
+    }
+    .nav-toggle {
+        left: 120px;
+        top: 0.5em;
+        font-size: 1em;
+    }
+    .nav {
+        width: 100px;
+        min-width: 100px;
+        left: -100px;
+        padding: 20px 10px;
+    }
+    .m {
+        margin-top: 30px;
+    }
+    .m > ul > li > a {
+        margin-bottom: 2px;
+        padding: 2px 0px 2px 5px;
+        font-weight: 200;
+        font-size: 1em;
+    }
+
+    .m > ul > li > a:hover,
+    .m > ul > li > a:focus {
+        color: #000000;
+        padding-left: 20px;
+    }
+
+    .top_c {
+        margin-top: 150px; padding: 0px;
+    }
+    .style {
+        margin-top: 40px;
+        font-size: 6pt;
+    }
+    .raised {
+        padding: 0.2em;
+    }
+    .col-xs-4 {
+        padding: 10px 0 0 0;
+    }
+    /*.padding a {
+        padding: 10px 0px 0px 0px;
+    }*/
+    .mer {
+        margin: 0;
+    }
+    /************ контакты ********/
+
+    .form {
+        margin: 120px 0px 0px 0px;
+        text-align: center;
+    }
+    .contact_form {
+        margin-left: 0;
+    }
+}
+
+
+
+@media (min-width: 480px)  {
+    .cursiv {
+        margin-top: 8px;
+        font-size: 14pt;
+    }
+    .info {
+        padding: 0px 0px 10px 0px;
+        font-size: 0.7em;
+    }
+    .nav-toggle {
+        left: 150px;
+        top: 0.5em;
+        font-size: 1.3em;
+    }
+    .nav {
+        width: 130px;
+        min-width: 130px;
+        left: -130px;
+        /*padding: 20px 10px;*/
+    }
+    .m {
+        margin-top: 30px;
+    }
+    .m > ul > li > a {
+        margin-bottom: 2px;
+        padding: 2px 0px 2px 5px;
+        font-weight: 200;
+        font-size: 1.5em;
+    }
+
+    .m > ul > li > a:hover,
+    .m > ul > li > a:focus {
+        color: #000000;
+        padding-left: 25px;
+    }
+
+    .top_c {
+        margin-top: 150px; padding: 0px;
+    }
+    .style {
+        margin-top: 40px;
+        font-size: 6pt;
+    }
+    .raised {
+        padding: 0.2em;
+    }
+    .col-xs-4 {
+        padding: 10px 0 0 0;
+    }
+    /*.padding a {
+        padding: 10px 0px 0px 0px;
+    }*/
+    .mer {
+        margin: 0;
+    }
+    /************ контакты ********/
+
+    .form {
+        margin: 120px 0px 0px 0px;
+        text-align: center;
+    }
+    .contact_form {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,765 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+@import url('https://fonts.googleapis.com/css?family=Cardo');
+@import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script');
+body {
+    background-image: url("image/bg.jpg");
+    background-color: #f6f6f6;
+}
+/*                                                        МЕНЮ
+@charset "UTF-8";
+
+/**
+ * Переключаемая боковая панель навигации
+ * выдвигающаяся по клику слева
+ */
+
+.nav {
+    /*  ширна произвольная, не стесняйтесь экспериментировать */
+    width: 200px;
+    min-width: 200px;
+    /* фиксируем и выставляем высоту панели на максимум */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    /* сдвигаем (прячем) панель относительно левого края страницы */
+    left: -200px;
+    /* внутренние отступы */
+    padding: 20px 10px;
+    /* плавный переход смещения панели */
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    transition: left 0.3s;
+    /* определяем цвет фона панели */
+    background: #171717;
+    background-image: url("image/c3.jpg");
+    z-index: 2000;
+}
+
+.m {
+    margin-top: 55px;
+}
+
+/*.m a {
+    background: linear-gradient(to top, #b1afaf 1%, #00000080 50%);
+}*/
+
+/**
+ * Кнопка переключения панели
+ * тег <label>
+ */
+
+.nav-toggle {
+    /* абсолютно позиционируем */
+    position: absolute;
+    /* относительно левого края панели */
+    left: 220px;
+    /* отступ от верхнего края панели */
+    top: 1em;
+    /* внутренние отступы */
+    padding: 10px;
+    /* определяем цвет фона переключателя
+     * чаще вчего в соответствии с цветом фона панели
+    */
+    background: none;
+    /* цвет текста */
+    color: #171717;
+    /* вид курсора */
+    cursor: pointer;
+    /* размер шрифта */
+    font-size: 1.5em;
+    line-height: 1;
+    /* всегда поверх других элементов страницы */
+    z-index: 2001;
+    /* анимируем цвет текста при наведении */
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+
+
+/* определяем текст кнопки
+ * символ Unicode (TRIGRAM FOR HEAVEN)
+*/
+
+.nav-toggle:after {
+    content: '\2630';
+    text-decoration: none;
+}
+
+
+/* цвет текста при наведении */
+
+.nav-toggle:hover {
+    color: #171717;
+}
+
+
+/**
+ * Скрытый чекбокс (флажок)
+ * невидим и недоступен :)
+ * имя селектора атрибут флажка
+ */
+
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+
+/**
+ * изменение положения переключателя
+ * при просмотре на мобильных устройствах
+ * когда навигация раскрыта, распологаем внутри панели
+*/
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 0.1em;
+    font-size: 1em;
+}
+
+
+/**
+ * Когда флажок установлен, открывается панель
+ * используем псевдокласс:checked
+ */
+
+[id='nav-toggle']:checked ~ .nav {
+    left: 0;
+    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+
+/*
+ * смещение контента страницы
+ * на размер ширины панели,
+ * фишка необязательная, на любителя
+*/
+
+/*[id='nav-toggle']:checked ~ main > article {
+    -webkit-transform: translateX(250px);
+    -moz-transform: translateX(250px);
+    transform: translateX(250px);
+}
+
+
+/*
+ * изменение символа переключателя,
+ * привычный крестик (MULTIPLICATION X),
+ * вы можете испльзовать любой другой значок
+*/
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '\2715';
+    color: #8c8c8c;
+}
+
+
+/**
+ * профиксим баг в Android <= 4.1.2
+ * см: http://timpietrusky.com/advanced-checkbox-hack
+ */
+
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+    to {
+        padding: 0;
+    }
+}
+
+
+/**
+ * позаботьтимся о средних и маленьких экранах
+ * мобильных устройств
+ */
+
+@media screen and (min-width: 320px) {
+    html,
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+}
+
+/*@media screen and (max-width: 320px) {
+    html,
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+    .nav {
+        width: 100%;
+        box-shadow: none
+    }
+}
+
+
+/**
+ * формируем непосредственно само меню
+ * используем неупорядоченный список для пунктов меню
+ * прикрутим трансфомации и плавные переходы
+ */
+
+.m > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav > ul > li {
+    line-height: 2.5;
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: opacity .5s .1s, -webkit-transform .5s .1s;
+    -moz-transition: opacity .5s .1s, -moz-transform .5s .1s;
+    -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
+    transition: opacity .5s .1s, transform .5s .1s;
+}
+
+/*[id='nav-toggle']:checked ~ .nav > ul > li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+/* определяем интервалы появления пунктов меню */
+
+/*.nav > ul > li:nth-child(2) {
+    -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
+    transition: opacity .5s .2s, transform .5s .2s;
+}
+
+.nav > ul > li:nth-child(3) {
+    -webkit-transition: opacity .5s .3s, -webkit-transform .5s .3s;
+    transition: opacity .5s .3s, transform .5s .3s;
+}
+
+.nav > ul > li:nth-child(4) {
+    -webkit-transition: opacity .5s .4s, -webkit-transform .5s .4s;
+    transition: opacity .5s .4s, transform .5s .4s;
+}
+
+.nav > ul > li:nth-child(5) {
+    -webkit-transition: opacity .5s .5s, -webkit-transform .5s .5s;
+    transition: opacity .5s .5s, transform .5s .5s;
+}
+
+.nav > ul > li:nth-child(6) {
+    -webkit-transition: opacity .5s .6s, -webkit-transform .5s .6s;
+    transition: opacity .5s .6s, transform .5s .6s;
+}
+
+.nav > ul > li:nth-child(7) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s .7s;
+    transition: opacity .5s .7s, transform .5s .7s;
+}
+
+
+/**
+ * оформление ссылок пунктов меню
+ */
+
+.m > ul > li > a {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 5px;
+    padding: 5px 0px 5px 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: 2em;
+    font-style: italic;
+    /*color: #d8d8d8;*/
+    width: 100%;
+    text-decoration: none;
+    /*font-size: 37px;*/
+
+    color:#e5e5e5;
+    text-shadow: 0 1px 0 #999999, 0 1px 0 #888888, 0 1px 0 #777777, 0 2px 0 #666666, 0 3px 0 #555555, 0 4px 0 #444444, 0 5px 0 #333333, 0 6px 5px #000B21;
+    /* плавный переход */
+
+    -webkit-transition: color .5s ease, padding .5s ease;
+    -moz-transition: color .5s ease, padding .5s ease;
+    transition: color .5s ease, padding .5s ease;
+}
+
+
+/**
+ * состояние ссылок меню при наведении
+ */
+
+.m > ul > li > a:hover,
+.m > ul > li > a:focus {
+    color: #000000;
+    padding-left: 35px;
+}
+
+
+/**
+ * линия подчеркивания ссылок меню
+ */
+/*
+.nav > ul > li > a:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    -webkit-transition: width 0s ease;
+    transition: width 0s ease;
+}
+
+.nav > ul > li > a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: #8c8c8c;
+    -webkit-transition: width .5s ease;
+    transition: width .5s ease;
+}
+
+
+/**
+ * анимируем линию подчеркивания
+ * ссылок при наведении
+ */
+/*
+.nav > ul > li > a:hover:before {
+    width: 0%;
+    background: #ffffff;
+    -webkit-transition: width .5s ease;
+    transition: width .5s ease;
+}
+
+.nav > ul > li > a:hover:after {
+    width: 0%;
+    background: transparent;
+    -webkit-transition: width 0s ease;
+    transition: width 0s ease;
+}
+
+/* КОНЕЦ МЕНЮ     */
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic);
+
+* {
+    box-sizing: border-box;
+}
+
+/**
+ * Максимальная высота базового контейнера
+ */
+html {
+    font-size: 100%;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.top_c {
+    margin-top: 170px; padding: 0px;
+    padding: 0px;
+}
+
+.form {
+    margin: 150px 0px -100px 150px;
+    text-align: center;
+}
+/****** КОНТЕНТ *************/
+.mer {
+    margin: 4% 0 0 13%;
+}
+
+.text {
+    text-align: center!important;
+}
+.cursiv {
+    color: #171717;
+    font-size: 28pt;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.info {
+    padding: 0px 0px 15px 0px;
+    font-size: 1.5em;
+    color: #171717;
+    /*text-align: center;*/
+    font-style: italic;
+    text-transform: uppercase;
+    font-family: 'Cardo', serif;
+}
+.info_e {
+    font-size: 1.8em;
+    color: #171717;
+    font-style: italic;
+    font-family: 'Cardo', serif;
+}
+
+.padding a {
+    padding: 7px 0px 0px 7px;
+}
+
+.raised {
+    position:relative;
+    padding:1em;
+   /* margin:2em 10px 4em;*/
+    background:#fff;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+ 
+.raised:before,
+.raised:after {
+    content:"";
+    position:absolute;
+    z-index:-2;
+}
+ 
+.raised img {
+    font-size:16px;
+    font-weight:bold;
+}
+
+
+
+.big {
+    z-index: 2;
+}
+
+.image {
+    margin:7px 0 0 7px;
+    float:left;
+    border: 2px solid #8e8e8e;
+    box-shadow: 2px 2px 5px 2px #717171;
+    cursor:pointer;
+    max-height:250px;
+
+}
+
+.popup {
+    position: absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+}
+
+.popup_bg {
+    background-image: url("image/bg.jpg");
+            /*rgb(23, 23, 23);*/
+    position:absolute;
+    z-index:1;
+    height:100%;
+    width:100%;
+}
+
+
+.popup_img {
+    position: relative;
+   /* margin:0 auto;*/
+    z-index:2;
+    max-height:100%;
+    max-width:100%;
+    transition: opacity 1s;
+   /* display:flex;*/
+
+}
+
+.popup_img.shown{
+    opacity: 1;
+}
+
+
+.prev, .next {
+    position: relative;
+    /* margin:0 auto;*/
+    z-index:3;
+    max-height:100%;
+    max-width:100%;
+    /* display:flex;*/
+
+}
+
+.more {
+    margin-top: 150px;
+    background: white;
+    padding: 25px 0px 25px 0px;
+    font-size: 2em;
+    color: #171717;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888, 0 3px 0 #777777, 0 4px 0 #666666, 0 5px 0 #555555, 0 6px 0 #444444, 0 7px 0 #333333, 0 8px 7px #000B21;
+    text-align: center;
+    text-transform: uppercase;
+}
+ .left {
+     float: left;
+     margin-left: 12px;
+ }
+
+.style {
+    margin-top: 40px;
+    color: #727272;
+    font-size: 12pt;
+}
+
+.more1 {
+    padding: 0px 0px 25px 0px;
+    font-size: 1.9em;
+    color: #171717;
+    text-shadow: 0 1px 0 #999999, 0 1px 0 #888888, 0 1px 0 #777777, 0 2px 0 #666666, 0 3px 0 #555555, 0 4px 0 #444444, 0 5px 0 #333333, 0 6px 5px #000B21;
+    text-align: center;
+    /*text-transform: uppercase;*/
+}
+
+.about-photo {
+    margin: 48px 0px 0px 0px;
+    border: 2px solid #8e8e8e;
+    box-shadow: inset 2px 2px 5px 2px #717171;
+}
+
+.vk {
+    font-size: 14pt;
+    color: #ffffff;
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+    /*text-shadow: 0 1px 0 #999999, 0 1px 0 #888888, 0 1px 0 #777777, 0 2px 0 #666666, 0 3px 0 #555555, 0 4px 0 #444444, 0 5px 0 #333333, 0 6px 5px #000B21;*/
+    /*text-shadow:0 0 10px #fff, 0 0 20px #00d2ff, 0 0 30px #00d2ff, 0 0 40px #00d2ff, 0 0 50px #00d2ff, 0 0 60px #00d2ff, 0 0 70px #00d2ff;*/
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to top, #4a76a8, #9bc4f2);
+}
+
+.grad {
+    font-size: 14pt;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-shadow: 0 0 5px #fff;
+
+
+    /*text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px crimson, 0 0 35px crimson, 0 0 40px crimson, 0 0 50px crimson, 0 0 75px crimson;*/
+    background: #ff0000; /* For browsers that do not support gradients */
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+    background: -webkit-linear-gradient(to top right, #f9d801, #f50b18, #7a37ab); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to top right, #f9d801, #f50b18, #7a37ab); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to top right, #f9d801, #f50b18, #7a37ab); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top right, #f9d801, #f50b18, #7a37ab); /* Standard syntax */
+}
+
+
+/* === Remove input autofocus webkit === */
+*:focus {outline: none;}
+
+/* === Form Typography === */
+/*body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;}*/
+.contact_form h2, .contact_form label {font-family:Georgia, Times, "Times New Roman", serif;}
+.form_hint, .required_notification {font-size: 11px;}
+
+/* === List Styles === */
+.contact_form ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.contact_form li{
+    padding:8px;
+    border-bottom:1px solid #bdbcbc;
+    position:relative;
+}
+.contact_form li:first-child, .contact_form li:last-child {
+    border-bottom:1px solid #777;
+}
+
+/* === Form Header === */
+.contact_form h2 {
+    margin:0;
+    display: inline;
+}
+.required_notification {
+    color:#d45252;
+    margin:5px 0 0 0;
+    /*display:inline;*/
+    float:right;
+}
+
+/* === Form Elements === */
+
+.contact_form {
+    margin-left: 11%;
+}
+.contact_form label {
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.contact_form input {
+    height:20px;
+    width:300px;
+    padding:19px 8px;
+}
+.contact_form textarea {padding:8px; width:300px;}
+.contact_form button {margin-left:156px;}
+
+/* form element visual styles */
+.contact_form input, .contact_form textarea {
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    padding-right:30px;
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+.contact_form input:focus, .contact_form textarea:focus {
+    background: #fff;
+    border:1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+    padding-right:70px;
+}
+
+/* === HTML5 validation styles === */
+.contact_form input:required, .contact_form textarea:required {
+    background: #fff url('image/red_asterisk.png') no-repeat 98% center;
+}
+.contact_form input:required:valid, .contact_form textarea:required:valid {
+    background: #fff url(image/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
+    background: #fff url(image/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+/* === Form hints === */
+.form_hint {
+    background: #d45252;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    margin-left:8px;
+    padding: 1px 6px;
+    z-index: 999; /* hints stay above all other elements */
+    position: absolute; /* allows proper formatting if hint is two lines */
+    display: none;
+}
+.form_hint::before {
+    content: "\25C0";
+    color:#d45252;
+    position: absolute;
+    top:1px;
+    left:-6px;
+}
+.contact_form input:focus + .form_hint {display: inline;}
+.contact_form input:required:valid + .form_hint {background: #28921f;}
+.contact_form input:required:valid + .form_hint::before {color:#28921f;}
+
+/* === Button Style === */
+button.submit {
+    margin-top: 30px;
+    background-color: #68b12f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+    background: -webkit-linear-gradient(top, #68b12f, #50911e);
+    background: -moz-linear-gradient(top, #68b12f, #50911e);
+    background: -ms-linear-gradient(top, #68b12f, #50911e);
+    background: -o-linear-gradient(top, #68b12f, #50911e);
+    background: linear-gradient(top, #68b12f, #50911e);
+    border: 1px solid #509111;
+    border-bottom: 1px solid #5b992b;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover {
+    opacity:.85;
+    cursor: pointer;
+}
+button.submit:active {
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset;
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+
+}
+
+.text_c {
+    margin: 15px 0px 15px 0px;
+}
+.text_c p {
+   /* margin-right: 60px;*/
+    font-size: 14pt;
+    /*font-style: italic;*/
+    font-family:  'Petit Formal Script', cursive;
+    text-indent: 15px;
+}
+
+.top {
+    margin-bottom: 15px;
+}
+
+.center {
+    text-align: center;
+}
+
+.border, .border-c {
+    margin-top: 35px;
+}
+
+/*.border-a {
+    margin-top: 90px;
+}
+
